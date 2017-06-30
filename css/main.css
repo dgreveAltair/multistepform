@@ -42,7 +42,7 @@ hr {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #ededed;
     margin: 1em 0;
     padding: 0;
 }
@@ -100,14 +100,25 @@ textarea {
     Mid Grey: #6d6e71
     Light Grey: #e6e6e6
 **/
+body {background: #FBFCFC;}
+a {color: #80c342}
+a:hover, a:active {color:#6D6E71}
 #warrantyWrapper {
   width: 960px;
   padding: 8px;
   margin: 0 auto;
 }
+#warrantyWrapper h1,h2,h3,h4,h5 {font-weight: bold;}
+/***
+Remove margin from bootstrap row
+**/
+#warrantyWrapper .row {margin-right: 0; margin-left: 0;}
+
+
+
 header {
   text-align: center;
-  margin:0 auto;
+  margin:0 auto 45px;
   width: 669px;
 }
 
@@ -145,6 +156,16 @@ ul#progressBar li span.active {
   color:#FFF;
 }
 
+ul#progressBar li span.completed {
+  background: #e6e6e6;
+    border: none;
+    color: #cccccc;
+    width: 90px;
+    height: 90px;
+    line-height: 89px;
+    margin-bottom: 26px;
+}
+
 .gray-bar
 {
         position: relative;
@@ -163,44 +184,195 @@ ul#progressBar li span.active {
   height: 4px;
 }
 
-#warrantyRegForm p {
-  width: 424px;
-  margin-right: 20px;
-  float: left;
-}
 /*** Form styling ****/
+#warrantyRegForm, p.addMore a {
+  color:#6D6E71;
+}
 
 #warrantyRegForm legend {
   width: 1px;
   height: 1px;
   overflow: hidden;
 }
+
+#warrantyRegForm p {
+  font-size: 1em;
+  width: 422px;
+  margin-right: 20px;
+  float: left;
+}
+
+/*** Shorter fields ***/
+#warrantyRegForm p.stateSelect {
+  width: 232px;
+}
+ #warrantyRegForm p.zipField {
+  width: 172px;
+}
+
+ #warrantyRegForm p.sameAddress {
+   width: 100%;
+ }
+
+#warrantyRegForm .purchaseDate input {
+  width: 82px;
+}
+
+#warrantyRegForm p.modelNumField {
+  width: 260px
+}
+
+#warrantyRegForm p.quantityField {
+  width: 140px
+}
+
+
+
 /**setup show/hide for multistep with parsley validation ***/
 .form-section {display: none;}
 .form-section.current {display: inherit;}
 
-#personalInfo, #installPurchaseInfo{
+#personalInfo, #installPurchaseInfo, .additionalLocations .locInfo{
   background: #e6e6e6;
   border-radius: 10px;
-  padding: 28px;
-  margin: 50px 0;
+  padding: 30px;
+  margin-bottom: 20px;
 }
 
-#warrantyRegForm input {
+
+
+#warrantyRegForm input, #warrantyRegForm select {
   border-radius: 30px;
   border:2px solid #dedede;
   width: 100%;
   padding: 10px 25px;
   font-size: 14px;
 }
-
-#warrantyRegForm input:focus {
+#warrantyRegForm input:focus,
+#warrantyRegForm select:focus {
   border-color: #80c342;
   outline: none !important;
 }
 
+/*** custom checkboxes ***/
+/* Base for label styling */
+#warrantyRegForm input[type="checkbox"]:not(:checked),
+#warrantyRegForm input[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+#warrantyRegForm input[type="checkbox"]:not(:checked) + label,
+#warrantyRegForm input[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 1.95em;
+  cursor: pointer;
+}
 
-button {
+/* checkbox aspect */
+#warrantyRegForm input[type="checkbox"]:not(:checked) + label:before,
+#warrantyRegForm input[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0;
+  width: 1.25em; height: 1.25em;
+  border: 2px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+}
+/* checked mark aspect */
+#warrantyRegForm input[type="checkbox"]:not(:checked) + label:after,
+#warrantyRegForm input[type="checkbox"]:checked + label:after {
+  content: '✔';
+  position: absolute;
+  top: .1em; left: .3em;
+  font-size: 1.3em;
+  line-height: 0.8;
+  color: #80c342;
+  transition: all .2s;
+}
+/* checked mark aspect changes */
+#warrantyRegForm input[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+#warrantyRegForm input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+/* disabled checkbox */
+#warrantyRegForm input[type="checkbox"]:disabled:not(:checked) + label:before,
+#warrantyRegForm input[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+#warrantyRegForm input[type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+#warrantyRegForm input[type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+/* accessibility */
+#warrantyRegForm input[type="checkbox"]:checked:focus + label:before,
+#warrantyRegForm input[type="checkbox"]:not(:checked):focus + label:before {
+  border: 1px solid #80c342;
+}
+
+/* hover style just for information */
+label:hover:before {
+  border: 2px solid #80c342!important;
+}
+
+/*** End custom checkbox styling **/
+
+
+/*** INFO REVIEW SECTION STYLING ****/
+#installInfoReview {
+  background: #e6e6e6;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+#installInfoReview header {
+  width: 100%;
+  background: #6e6d71;
+  color: #FFF;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.editDetBtn {
+  background: #4d4d4d;
+  border-top-right-radius: 10px;
+  padding: 12px;
+}
+#installInfoReview h3{font-size:14px; color: #FFF; text-align: left;padding-top: 15px}
+#installInfoReview a {color: #fff; font-size: 12px;}
+#installInfoReview a:hover, #installInfoReview a:active {text-decoration: none;color: #eee;}
+#installInfoReview h4,
+#installInfoReview p,
+.reviewQuantNum,
+.reviewProdNum
+{font-size:12px;}
+
+.reviewProdNum {width: 108px;}
+
+.infoReviewOne, .infoReviewTwo, .infoReviewThree{
+  float: left;
+  border-right: 1px solid #FBFCFC;
+  margin: 8px 0;
+  padding: 12px 30px;
+}
+
+.infoReviewOne{width:276px; }
+.infoReviewTwo{width:298px; }
+.infoReviewThree{width:300px; border: none;}
+/**** END INFO REVIEW ****/
+
+
+
+.btn-info {
   background: #6d6e71;
   border: 1px solid #545559;
   border-radius: 30px;
@@ -209,7 +381,14 @@ button {
   width: 120px;
   padding:14px 30px;
 }
-button span {
+
+.btn-info:hover,.btn-info:active {
+  background-color:#e6e6e6;
+  border-color:#545559;
+  color:#545559;
+}
+
+.btn span {
   width: 0;
     height: 0;
     border-left: 50px solid transparent;
@@ -217,6 +396,34 @@ button span {
     border-bottom: 100px solid #fff;
 }
 
+.previous {float: left;}
+
+
+
+
+
+/*** custom style for add more ***/
+
+p.addMore a:hover,p.addMore a:active {
+  color:#525357;
+  text-decoration: none;
+}
+
+
+p.addMore a span {
+  background: #fff;
+  border: 1px solid #6D6E71;
+  display: inline-block;
+  line-height: 15px;
+  text-align: center;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+#addInstallLoc {
+  display: block;
+  margin: 0 0 20px 30px;
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
