@@ -61,10 +61,6 @@ $(function () {
   });
   navigateTo(0); // Start at the beginning
 
-// Mark the current section with the class 'current'
-if ( $( "#personalInfo" ).is( ".current" ) ) {
-  $( ".indicatorOne" ).addClass('active');
-};
 
 
 

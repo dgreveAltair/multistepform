@@ -103,11 +103,15 @@ textarea {
 body {background: #FBFCFC;}
 a {color: #80c342}
 a:hover, a:active {color:#6D6E71}
+
+
 #warrantyWrapper {
   width: 960px;
   padding: 8px;
   margin: 0 auto;
 }
+
+
 #warrantyWrapper h1,h2,h3,h4,h5 {font-weight: bold;}
 /***
 Remove margin from bootstrap row
@@ -184,6 +188,35 @@ ul#progressBar li span.completed {
   height: 4px;
 }
 
+
+/***** Form Nav styling ****/
+.btn-info, .form-navigation input[type="submit"] {
+  background: #6d6e71;
+  border: 1px solid #545559;
+  border-radius: 30px;
+  color: #FFF;
+  float: right;
+  width: 120px;
+  padding:14px 30px;
+}
+
+.btn-info:hover,.btn-info:active {
+  background-color:#e6e6e6;
+  border-color:#545559;
+  color:#545559;
+}
+
+.btn span {
+  width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #fff;
+}
+
+.previous {float: left;}
+
+
 /*** Form styling ****/
 #warrantyRegForm, p.addMore a {
   color:#6D6E71;
@@ -203,26 +236,26 @@ ul#progressBar li span.completed {
 }
 
 /*** Shorter fields ***/
-#warrantyRegForm p.stateSelect {
+#warrantyRegForm .form-section p.stateSelect {
   width: 232px;
 }
- #warrantyRegForm p.zipField {
+ #warrantyRegForm .form-section p.zipField {
   width: 172px;
 }
 
- #warrantyRegForm p.sameAddress {
+ #warrantyRegForm .form-section p.sameAddress {
    width: 100%;
  }
 
-#warrantyRegForm .purchaseDate input {
+#warrantyRegForm .form-section .purchaseDate input {
   width: 82px;
 }
 
-#warrantyRegForm p.modelNumField {
+#warrantyRegForm .form-section p.modelNumField {
   width: 260px
 }
 
-#warrantyRegForm p.quantityField {
+#warrantyRegForm .form-section p.quantityField {
   width: 140px
 }
 
@@ -241,7 +274,7 @@ ul#progressBar li span.completed {
 
 
 
-#warrantyRegForm input, #warrantyRegForm select {
+#warrantyRegForm .form-section input, #warrantyRegForm select {
   border-radius: 30px;
   border:2px solid #dedede;
   width: 100%;
@@ -372,33 +405,6 @@ label:hover:before {
 
 
 
-.btn-info {
-  background: #6d6e71;
-  border: 1px solid #545559;
-  border-radius: 30px;
-  color: #FFF;
-  float: right;
-  width: 120px;
-  padding:14px 30px;
-}
-
-.btn-info:hover,.btn-info:active {
-  background-color:#e6e6e6;
-  border-color:#545559;
-  color:#545559;
-}
-
-.btn span {
-  width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 100px solid #fff;
-}
-
-.previous {float: left;}
-
-
 
 
 
@@ -424,6 +430,23 @@ p.addMore a span {
   display: block;
   margin: 0 0 20px 30px;
 }
+
+
+/*** SUCCESS STYLING  ****/
+#success-section h1 {
+  color: #80c342;
+  font-size: 42px;
+  text-align: center;
+  margin: 150px 0 40px;
+}
+#success-section p {
+  font-size:24px;
+  width: 100%;
+  text-align: center;
+  line-height: 1.5;
+}
+
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
